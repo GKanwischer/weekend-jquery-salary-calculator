@@ -11,33 +11,34 @@
 </head>
 <body>
     <h1>Salary Calculator</h1>
-
-    <section class="formIn">
-        <h2>Add Employee</h2>
-        <input type="text" placeholder="First Name" id="firstIn"/>
-        <input type="text" placeholder="Last Name" id="lastIn"/>
-        <input type="number" placeholder="ID" id="idNumIn"/>
-        <input type="text" placeholder="Title" id="titleIn"/>
-        <input type="number" placeholder="Annual Salary" id="annSalIn"/>
-        <button id="submitButton">Submit</button>
-    </section>
-    <section class="empTable">
-        <h2>Employees</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Annual Salary</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="empOut">
-            </tbody>
-        </table>
-    </section>
-    <p>Total Monthly: $<span id="monthlyIncome">0</span></p>
+    <div class="container">
+        <section class="formIn">
+            <h2>Add Employee</h2>
+            <input type="text" placeholder="First Name" id="firstIn"/>
+            <input type="text" placeholder="Last Name" id="lastIn"/>
+            <input type="number" placeholder="ID" id="idNumIn"/>
+            <input type="text" placeholder="Title" id="titleIn"/>
+            <input type="number" placeholder="Annual Salary" id="annSalIn"/>
+            <button id="submitButton">Submit</button>
+        </section>
+        <section class="empTable">
+            <h2>Employees</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Annual Salary</th>
+                        <th class="actionRow"></th>
+                    </tr>
+                </thead>
+                <tbody id="empOut">
+                </tbody>
+            </table>
+        </section>
+        <p id="totMonth">Total Monthly: $<span id="monthlyIncome">0</span></p>
+    </div>
 </body>
 </html>

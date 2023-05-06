@@ -1,0 +1,46 @@
+body{
+    background-color: bisque;
+    margin: 0;
+    padding: 0;
+
+}
+
+h1{
+    text-align: center;
+    margin: 0;
+    height: 100px;
+    background-color: darkgrey;
+
+}
+
+#totMonth{
+    display: flex;
+    justify-content: right;
+    font-size: 28px;
+    margin-right: 20px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 80%;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: beige;
+
+}
+
+table, th, td{
+    border: 2.5px black solid;
+    padding: 8px;
+}
+
+th.actionRow{
+    width: 70px;
+}
+
+.formIn{
+    display:inline-block;
+    justify-content: center;
+
+}

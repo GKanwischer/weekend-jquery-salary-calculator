@@ -1,11 +1,12 @@
+// decaration of global variables
 let monthSal = 0;
 let totalSal = 0;
-let annSal = 0;
+// let annSal = 0;
 const monthLimit = 20000;
 
 // sets up jquery
 $(function(){
-    // click event for submitButton
+    // click listeners
     $('#submitButton').on( 'click', updateDom );
     $('table').on('click',".deleteButton", deleteRow );
 });
@@ -18,7 +19,7 @@ function updateDom(){
     const lastName = $('#lastIn');
     const idNum = $('#idNumIn');
     const title = $('#titleIn');
-    annSal = $('#annSalIn');
+    const annSal = $('#annSalIn');
 
     // stops and alerts the user if the form is incomplete
     if(
@@ -40,7 +41,7 @@ function updateDom(){
         <td>${idNum.val()}</td>
         <td>${title.val()}</td>
         <td data-salary="${annSal.val()}">${annSal.val()}</td>
-        <td><button class="deleteButton">Delete</button></td>
+        <td class="actionRow"><button class="deleteButton">Delete</button></td>
     </tr>`;
 
     // add the inputted salary to the running total
@@ -54,6 +55,12 @@ function updateDom(){
 
     // update the total monthly salary on the DOM
     $('#monthlyIncome').text(monthSal);
+
+    if(monthSal > 20000){
+        $('#totMonth').css('background', 'red');
+    } else {
+        $('#totMonth').css('background', '');
+    }
 
     // set the value in the input fields to an empty string after 'sumbitting'
     firstName.val('');
