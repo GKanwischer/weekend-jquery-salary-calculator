@@ -1,14 +1,14 @@
 // decaration of global variables
 let monthSal = 0;
 let totalSal = 0;
-// let annSal = 0;
-const monthLimit = 20000;
+let monthLimit = 20000;
 
 // sets up jquery
 $(function(){
     // click listeners
     $('#submitButton').on( 'click', updateDom );
-    $('table').on('click',".deleteButton", deleteRow );
+    $('table').on( 'click',".deleteButton", deleteRow );
+    $('#limitButton').on( 'click', setMonthlyLimit );
 });
 
 // adds items to the table upon button click
@@ -56,8 +56,8 @@ function updateDom(){
     // update the total monthly salary on the DOM
     $('#monthlyIncome').text(monthSal);
 
-    // sets monthly salary background to red when it excceds 20,000
-    if(monthSal > 20000){
+    // sets monthly salary background to red when it excceds the monthly limit
+    if(monthSal > monthLimit){
         $('#monthlyIncome').css('background', 'red');
     } else {
         $('#monthlyIncome').css('background', '');
@@ -94,11 +94,26 @@ function deleteRow(event) {
     // update the total monthly salary on the DOM
     $('#monthlyIncome').text(monthSal);
 
-    // resets the background to nothing when the monthly salary falls back under 20,000
-    if(monthSal < 20000){
+    // resets the background to nothing when the monthly salary falls back under the monthly Limit
+    if(monthSal < monthLimit){
         $('#monthlyIncome').css('background', '');
     } else {
         $('#monthlyIncome').css('background', 'red');
     }
-
 } // end deleteRow
+
+// Function that allows the user to input their own limit and update the variable 'monthLimit' to reflect that new value
+function setMonthlyLimit() {
+    // set variable to hold the inputted limit
+    const mLimit = $('#limit');
+    // set the monthLimit to the new value
+    monthLimit = Number(mLimit.val());
+    // clear the input field for monthly cost
+    mLimit.val('');
+    // updates the background of monthly cost to refect its correlation to the newly set limit
+    if(monthSal < monthLimit){
+        $('#monthlyIncome').css('background', '');
+    } else {
+        $('#monthlyIncome').css('background', 'red');
+    }
+} // end setMonthlyLimit

@@ -17,9 +17,22 @@ body{
     text-shadow: white 3px 3px 3px;
 }
 
-#totMonth{
+.monthly{
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+}
+
+.left-side{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+#limitButton{
+    margin-left: 5px;
+}
+
+#totMonth{
     font-size: 28px;
     margin-right: 20px;
     color: white;
