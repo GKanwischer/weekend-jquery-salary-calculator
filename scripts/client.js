@@ -40,7 +40,7 @@ function updateDom(){
         <td>${lastName.val()}</td>
         <td>${idNum.val()}</td>
         <td>${title.val()}</td>
-        <td data-salary="${annSal.val()}">${annSal.val()}</td>
+        <td data-salary="${annSal.val()}">$${annSal.val()}</td>
         <td class="actionRow"><button class="deleteButton">Delete</button></td>
     </tr>`;
 
@@ -48,7 +48,7 @@ function updateDom(){
     totalSal += (Number(annSal.val()));
 
     // calculate the new monthly salary
-    monthSal = (totalSal / 12);
+    monthSal = Math.round((totalSal / 12) * 100) / 100;
 
     // add the inputted content into the table
     tableBody.append(content);
@@ -56,10 +56,11 @@ function updateDom(){
     // update the total monthly salary on the DOM
     $('#monthlyIncome').text(monthSal);
 
+    // sets monthly salary background to red when it excceds 20,000
     if(monthSal > 20000){
-        $('#totMonth').css('background', 'red');
+        $('#monthlyIncome').css('background', 'red');
     } else {
-        $('#totMonth').css('background', '');
+        $('#monthlyIncome').css('background', '');
     }
 
     // set the value in the input fields to an empty string after 'sumbitting'
@@ -85,12 +86,19 @@ function deleteRow(event) {
     totalSal -= deletedSalary;
 
     // calculate new monthly salary
-    monthSal = (totalSal / 12);
+    monthSal = Math.round((totalSal / 12) * 100) / 100;
 
     // remove the targeted row
     deletedRow.remove();
 
     // update the total monthly salary on the DOM
     $('#monthlyIncome').text(monthSal);
+
+    // resets the background to nothing when the monthly salary falls back under 20,000
+    if(monthSal < 20000){
+        $('#monthlyIncome').css('background', '');
+    } else {
+        $('#monthlyIncome').css('background', 'red');
+    }
 
 } // end deleteRow
