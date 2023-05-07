@@ -10,6 +10,6 @@ Weekend JQuery Salary Calculator
 - Each row added has a delete button that removes the selected row and updates the running total accordingly to the annual salary of the employee that was removed.
 - Added a bonus feature that allows the user to input their own monthly cost limit
 
-![example of my webapp](Salary-Calculator.png)
+![example of my webapp](Employee-Salary-Calculator.png)
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
