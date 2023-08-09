@@ -82,7 +82,7 @@ function deleteRow(event) {
     // set variable to hold the annual salary value of the targeted row
     const deletedSalary = Number(deletedRow.find('td:eq(4)').data('salary'));
 
-    // remove targeted row's salary ammount from the running total
+    // remove targeted row's salary amount from the running total
     totalSal -= deletedSalary;
 
     // calculate new monthly salary
